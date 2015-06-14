@@ -11,3 +11,5 @@ RUN yum update -y && \
          http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD/jdk-$JDK_VERSION-linux-x64.rpm
 
 RUN rpm -ivh jdk-$JDK_VERSION-linux-x64.rpm && rm jdk-$JDK_VERSION-linux-x64.rpm
+# Workaround for https://bugs.centos.org/view.php?id=8148
+RUN chmod u+s /usr/bin/ping
